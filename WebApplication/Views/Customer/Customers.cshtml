@@ -1,0 +1,17 @@
+﻿@model WebApplication.ViewModels.CustomersViewModel
+
+<h1>Customers</h1>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>No Customers</p>
+}
+else
+{
+    <ul>
+      @foreach (var customer in Model.Customers)
+      {
+          <li><a asp-controller="Customer" asp-action="Details" asp-route-foo="@customer.Id">@customer.Name</a></li>
+      }
+    </ul>
+}
